@@ -7,11 +7,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.post('/submit', (req, res) => {
   const { first_name, last_name, email } = req.body;
+});
 
-app.get('/test')
-  res.send(
-    `Server received: First Name - ${first_name}, Last Name - ${last_name}, Email - ${email}`
-  );
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 app.listen(3000);
